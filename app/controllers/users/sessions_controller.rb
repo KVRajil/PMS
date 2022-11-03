@@ -4,6 +4,7 @@ module Users
     def auth_options
       { scope: resource_name, recall: "#{controller_path}#new" }
     end
+
     private
 
     def respond_with(_resource, _opts = {})
