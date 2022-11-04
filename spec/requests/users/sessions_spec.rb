@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'devise/jwt/test_helpers'
 
 RSpec.describe 'User::Session', type: :request do
   let(:json) { JSON.parse(response.body).with_indifferent_access }

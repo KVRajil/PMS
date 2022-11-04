@@ -4,7 +4,7 @@ require 'devise/jwt/test_helpers'
 RSpec.describe 'Api::V1::Projects', type: :request do
   let(:json) { JSON.parse(response.body).with_indifferent_access }
   let!(:user) { create(:user) }
-  let!(:project) { create(:project, title: 'Sample Project 1', description: 'Test description') }
+  let!(:project) { create(:project, title: 'Sample Project 1', description: 'Test description', user: user) }
   let!(:headers) { { ACCEPT: 'application/json', CONTENT_TYPE: 'application/json' } }
 
   describe 'GET /api/v1/projects' do

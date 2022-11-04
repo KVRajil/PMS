@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :username, uniqueness: true
+  validates :username, presence: true, uniqueness: true
 
   devise :database_authenticatable,
          :jwt_authenticatable,
