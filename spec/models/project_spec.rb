@@ -4,7 +4,6 @@ RSpec.describe Project, type: :model do
   let!(:user) { create(:user) }
   let!(:project) { create(:project, title: 'Sample Project 1', description: 'Test description', user: user) }
 
-
   context 'validation test' do
     it 'ensures title presence' do
       project.title = nil
