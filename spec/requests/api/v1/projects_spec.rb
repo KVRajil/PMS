@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'devise/jwt/test_helpers'
 
-RSpec.describe 'Api::V1::Projects', type: :request do
+RSpec.describe 'Api::V1::Project', type: :request do
   let(:json) { JSON.parse(response.body).with_indifferent_access }
   let!(:user) { create(:user) }
   let!(:project) { create(:project, title: 'Sample Project 1', description: 'Test description', user: user) }
@@ -40,11 +40,19 @@ RSpec.describe 'Api::V1::Projects', type: :request do
     end
   end
 
-  describe 'PUT /api/v1/projects/' do
+  describe 'PUT /api/v1/projects/:id' do
     it 'should update a project title' do
       authenticated_header = AuthToken.authenticated_header(headers, user)
       params = { title: 'Test title new' }
       put("/api/v1/projects/#{project.id}", headers: authenticated_header, params: params.to_json)
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe 'DELETE /api/v1/projects/:id' do
+    it 'should delete a project' do
+      authenticated_header = AuthToken.authenticated_header(headers, user)
+      delete("/api/v1/projects/#{project.id}", headers: authenticated_header)
       expect(response).to have_http_status(200)
     end
   end
