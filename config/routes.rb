@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :projects do
         resources :tasks
       end
+      resources :users, only: %i[index]
     end
   end
 end
