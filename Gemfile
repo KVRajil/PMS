@@ -25,12 +25,14 @@ gem 'apipie-rails', '~> 0.8.2'
 
 gem 'jbuilder', '~> 2.11'
 
+gem 'ransack'
+
 group :development, :test do
+  gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
-  gem 'bullet'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
