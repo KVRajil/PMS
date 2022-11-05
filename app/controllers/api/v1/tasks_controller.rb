@@ -15,7 +15,6 @@ module Api
         @tasks = @project.tasks.includes(:assignee, :reporter).ordered.page(params[:page]).per(params[:per_page])
                          .ransack(status_eq: params[:status], assignee_id: params[:assignee_id],
                                   reporter_id: params[:reporter_id]).result
-
       end
 
       api :GET, 'api/v1/projects/:project_id/tasks/:id', 'Get task details'
