@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
-
+  validates :email, presence: true, uniqueness: true
+  
   devise :database_authenticatable,
          :jwt_authenticatable,
          :registerable,

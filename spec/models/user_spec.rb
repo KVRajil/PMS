@@ -14,20 +14,16 @@ RSpec.describe User, type: :model do
       expect(user).to_not be_valid
     end
 
-    it 'ensures password presence' do
-      user.password = nil
-      expect(password).to_not be_valid
-    end
-
     it 'ensures username uniqueness' do
       new_user = user.dup
-      new_user = new_user.email = 'valid_uniq@test.com'
+      new_user.email = 'valid_uniq@test.com'
+      p User.all
       expect(new_user).to_not be_valid
     end
 
     it 'ensures email uniqueness' do
       new_user = user.dup
-      new_user = new_user.username = 'test_uniq'
+      new_user.username = 'test_uniq'
       expect(new_user).to_not be_valid
     end
   end
