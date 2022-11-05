@@ -23,7 +23,7 @@ Run test cases
 2. rspec spec/
 
 
-file:///{path}/project_management_app/coverage/index.html - code coverage
+file:///{path}/coverage/index.html - code coverage
 
 http://localhost:3000/apipie - APIPIE documentation
 
