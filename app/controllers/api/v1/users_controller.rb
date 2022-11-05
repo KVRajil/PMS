@@ -10,7 +10,6 @@ module Api
       def index
         @users = User.ransack(username_cont: params[:name], email_cont: params[:name], m: 'or').result
                      .ordered.page(params[:page]).per(params[:per_page])
-
       end
     end
   end

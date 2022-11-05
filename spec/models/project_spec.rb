@@ -16,7 +16,7 @@ RSpec.describe Project, type: :model do
     end
 
     it 'ensures title length should not be too long' do
-      project.title = [*('AA'..'GG')].sample(150).join('')
+      project.title = [*('AA'..'GG')].sample(150).join
       expect(project).to_not be_valid
     end
   end

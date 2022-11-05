@@ -10,7 +10,7 @@ AllCops:
   Exclude:
     - tmp/**/*
     - vendor/**/*
-    - db/schemas/*
+    - db/schema/*
 
 
 Rails/UnknownEnv:
