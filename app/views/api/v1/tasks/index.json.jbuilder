@@ -3,11 +3,19 @@ json.tasks @tasks do |task|
   json.project do
     json.partial! partial: 'api/v1/projects/project', project: @project
   end
-  json.assignee do
-    json.partial! partial: '/users/user', user: task.assignee
+  if task.assignee.present?
+    json.assignee do
+      json.partial! partial: '/users/user', user: task.assignee
+    end
+  else
+    json.assignee nil
   end
-  json.reporter do
-    json.partial! partial: '/users/user', user: task.reporter
+  if task.reporter.present?
+    json.reporter do
+      json.partial! partial: '/users/user', user: task.reporter
+    end
+  else
+    json.reporter nil
   end
 end
 json.meta do
