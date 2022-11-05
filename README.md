@@ -13,9 +13,10 @@ Rails version - 7.0.4
 Ruby  version - 3.0.2
 
 
-Setup & Installation setps:
-1. Just run docker-compose up --build
-2. Yup done!!!
+Setup & Installation steps:
+1. Create master.key file in config folder (value - 2775d20d83da8ca079203af26ce39c21)
+2. Just run docker-compose up --build
+
 
 Run test cases
 1. docker exec -it DOCKER_ID  bash
