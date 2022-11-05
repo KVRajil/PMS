@@ -31,6 +31,7 @@ module Api
 
         head :ok
       end
+
       api :DELETE, 'api/v1/projects/:id', 'Delete an existing project'
       def destroy
         @project.destroy!

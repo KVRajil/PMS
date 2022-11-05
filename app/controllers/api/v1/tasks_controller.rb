@@ -47,6 +47,7 @@ module Api
 
         head :ok
       end
+
       api :DELETE, 'api/v1/projects/:project_id/tasks/:id', 'Delete an existing task'
       def destroy
         @task.destroy!
