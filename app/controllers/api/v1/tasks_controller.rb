@@ -30,7 +30,7 @@ module Api
       param :start_time, String, desc: 'Start time', required: false
       param :end_time, String, desc: 'End time', required: false
       def create
-        @task = @project.tasks.create!(task_params)
+        ::CreateTaskService.new(project: @project, task_params: task_params).call
 
         head :ok
       end
@@ -44,7 +44,7 @@ module Api
       param :start_time, String, desc: 'Start time', required: false
       param :end_time, String, desc: 'End time', required: false
       def update
-        @task.update!(task_params)
+        ::UpdateTaskService.new(project: @project, task: @task, task_params: task_params).call
 
         head :ok
       end

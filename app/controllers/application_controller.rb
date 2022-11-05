@@ -3,6 +3,7 @@ class ApplicationController < ActionController::API
   rescue_from ActionController::UnknownFormat, with: :unknown_format
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_data
+  rescue_from PmsErrors::ValidationError, with: :invalid_data
   rescue_from Apipie::ParamMissing, with: :handle_param_missing_error
   rescue_from Apipie::ParamInvalid, with: :handle_param_invalid_error
 

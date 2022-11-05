@@ -47,6 +47,13 @@ RSpec.describe 'Api::V1::Task', type: :request do
       put("/api/v1/projects/#{project.id}/tasks/#{task.id}", headers: authenticated_header, params: params.to_json)
       expect(response).to have_http_status(200)
     end
+
+    it 'should fail to update task with start_date greater than end_date' do
+      authenticated_header = AuthToken.authenticated_header(headers, user)
+      params = { start_date: Time.zone.tomorrow, end_date: Time.zone.today }
+      put("/api/v1/projects/#{project.id}/tasks/#{task.id}", headers: authenticated_header, params: params.to_json)
+      expect(response).to have_http_status(422)
+    end
   end
 
   describe 'DELETE /api/v1/projects/:project_id/tasks/:id' do

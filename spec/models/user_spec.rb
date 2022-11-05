@@ -17,7 +17,6 @@ RSpec.describe User, type: :model do
     it 'ensures username uniqueness' do
       new_user = user.dup
       new_user.email = 'valid_uniq@test.com'
-      p User.all
       expect(new_user).to_not be_valid
     end
 
