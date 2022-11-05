@@ -5,8 +5,8 @@ module Api
       before_action :set_project, only: %i[show update destroy]
 
       api :GET, 'api/v1/projects', 'List all projects'
-      param :page,     :number, desc: 'Page number for pagination',      required: false
-      param :per_page, :number, desc: 'Records per page for pagination', required: false
+      param :page,     :number, desc: 'Page number for pagination',      required: false, default_value: 1
+      param :per_page, :number, desc: 'Records per page for pagination', required: false, default_value: 10
       def index
         @projects = Project.includes(:user).ordered.page(params[:page]).per(params[:per_page])
       end
@@ -23,7 +23,7 @@ module Api
         head :ok
       end
 
-      api :PUT, 'api/v1/projects', 'Update an existing project'
+      api :PUT, 'api/v1/projects/:id', 'Update an existing project'
       param :title, String, desc: 'Project title', required: false
       param :description, String, desc: 'Project description', required: false
       def update

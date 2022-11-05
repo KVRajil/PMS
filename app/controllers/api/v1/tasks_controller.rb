@@ -9,8 +9,8 @@ module Api
       param :status, Task::STATUSES, desc: 'Task status', required: false
       param :assignee_id, :number, desc: 'Assignee user id', required: false
       param :reporter_id, :number, desc: 'Reporter user id', required: false
-      param :page, :number, desc: 'Page number for pagination', required: false
-      param :per_page, :number, desc: 'Records per page for pagination', required: false
+      param :page, :number, desc: 'Page number for pagination',          required: false, default_value: 1
+      param :per_page, :number, desc: 'Records per page for pagination', required: false, default_value: 10
       def index
         @tasks = @project.tasks.includes(:assignee, :reporter).ordered.page(params[:page]).per(params[:per_page])
                          .ransack(status_eq: params[:status], assignee_id: params[:assignee_id],
