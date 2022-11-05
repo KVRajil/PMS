@@ -27,4 +27,4 @@ file:///{path}/project_management_app/coverage/index.html - code coverage
 
 http://localhost:3000/apipie - APIPIE documentation
 
-https://documenter.getpostman.com/view/9745014/2s8YYFrihy - POSTMAN api collection
+https://documenter.getpostman.com/view/9745014/2s8YYFrihy - POSTMAN API collection
